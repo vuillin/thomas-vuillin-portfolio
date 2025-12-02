@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Projets - Portfolio</title>
+    <style>
+
+        @import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+        /* --- DESIGN SYSTEM APPLE-LIKE --- */
+        :root {
+            --bg-body: #000000;
+            --bg-card: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-blue: #2997ff;
+            --accent-gray: #3a3a3c;
+            --radius: 20px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: var(--font-stack);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 100px; /* Espace fin de page */
+        }
+
+        /* Conteneur principal centré (Apple style layout) */
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- STRUCTURE PROJET --- */
+        .project-section {
+            padding: 120px 0;
+            border-bottom: 1px solid #333; /* Séparateur subtil */
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .project-section:last-child { border-bottom: none; }
+
+        /* HEADER PROJET */
+        .project-header { display: flex; flex-direction: column; gap: 10px; }
+        
+        .project-meta {
+            text-transform: uppercase;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .project-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            background: linear-gradient(180deg, #fff, #b0b0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* TAGS / LANGAGES */
+        .tags-container { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+        .tag {
+            display: flex;
+            background-color: var(--accent-gray);
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 19px;
+            font-weight: 500;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .icon-tags-container {
+            height: 20px;
+            width: auto;
+        }
+
+        /* --- CARROUSEL --- */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Cache scrollbar Firefox */
+        }
+        .carousel-track::-webkit-scrollbar { display: none; } /* Cache scrollbar Chrome */
+
+        .slide {
+            flex: 0 0 100%;
+            scroll-snap-align: center;
+            position: relative;
+        }
+
+        /* Images placeholder stylisées */
+        .slide img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+            cursor: zoom-in;
+        }
+        .slide img:hover { opacity: 1; }
+
+        .caption {
+            position: absolute;
+            bottom: 20px; left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 18px;
+            color: #fff;
+        }
+
+        /* Navigation Carrousel */
+        .nav-btn {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            width: 70px; height: 90px;
+            border-radius: 20%;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            font-size: 1.2rem;
+            transition: background 0.2s;
+            z-index: 10;
+        }
+        .nav-btn:hover { background: rgba(255,255,255,0.3); }
+        .prev { left: 15px; }
+        .next { right: 15px; }
+
+        /* --- DESCRIPTION --- */
+        .project-desc {
+            font-size: 25px;
+            color: var(--text-secondary);
+            max-width: 100%;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            text-decoration: none;
+        }
+        .project-link:hover { text-decoration: underline; }
+
+        .main-title {
+            font-size: 80px;
+            text-align: center;
+            margin-top: 75px;
+            font-family: "Sansation", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .main-hr {
+            max-width: 80%;
+            margin: 0 auto;
+            margin-top: 60px;
+            opacity: 0.15;
+        }
+
+
+        @media (max-width: 900px) {
+
+            .container {
+                width: 95%;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <h1 class="main-title">MES PROJETS</h1>
+
+        <hr class="main-hr">
+
+        <section class="project-section" style="padding: 100px 0 120px 0">
+            <div class="project-header">
+                <div class="project-meta">
+                    <span>Année scolaire 2024-2025</span>
+                    <span>•</span>
+                    <span>Développement Web</span>
+                </div>
+                <h2 class="project-title">Site événementiel - Quantic Grand Prix</h2>
+                <div class="tags-container">
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/vue.png">
+                        VueJS
+                    </span>
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/node.png">
+                        NodeJS
+                    </span>
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/js.png">
+                        JavaScript
+                    </span>
+                </div>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="nav-btn prev" onclick="scrollCarousel(this, -1)">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="slide">
+                        <img src="public/img/1_1.png" alt="Page d'accueil">
+                        <div class="caption">Page d'accueil du site.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="public/img/1_2.png" alt="Carte interactive">
+                        <div class="caption">Carte interactive de l'événement.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="public/img/1_3.png" alt="Page d'information">
+                        <div class="caption">Page d'information.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="public/img/1_4.png" alt="Page backoffice">
+                        <div class="caption">Backoffice et gestion des services.</div>
+                    </div>
+                </div>
+                <button class="nav-btn next" onclick="scrollCarousel(this, 1)">&#10095;</button>
+            </div>
+
+            <div>
+                <p class="project-desc">
+                    Ce projet universitaire est un site web basé sur un <b>événement fictif de Formule 1</b> nommé <i>Quantic Grand Prix</i>, inspiré des événements existants mais enrichi de nouvelles activités inédites. 
+                    <br><br>
+                    Il s'agit d'une <b>application web full-stack</b> moderne, avec un front-end en <b>Vue.js</b> conçu comme une Single Page Application. 
+                    Cette interface communique avec une <b>API REST</b> en Node.js/Express, qui centralise la logique métier et assure l’échange de données avec une base <b>MySQL</b>.
+                    <br><br>
+                    L’application inclut un système de rôles permettant de gérer différents <b>niveaux d’accès</b> selon les profils utilisateurs.
+                    La base de données repose sur une structure pensée pour supporter l’évolution de l’événement, permettant d’ajouter de nouvelles fonctionnalités ou activités sans refonte majeure.
+                    La <b>sécurité</b> occupe aussi une place essentielle : authentification, autorisations, protection des données sensibles et respect des bonnes pratiques de développement.
+                </p>
+                <a target="_blank" href="https://github.com/SemihAslan123/QuanticGP" class="project-link">Voir sur GitHub</a>
+            </div>
+        </section>
+
+
+        <section class="project-section">
+            <div class="project-header">
+                <div class="project-meta">
+                    <span>Avril 2025 - Août 2026</span>
+                    <span>•</span>
+                    <span>Développement web</span>
+                </div>
+                <h2 class="project-title">Développement web full-stack - Mediverif</h2>
+                <div class="tags-container">
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/php.png">
+                        PHP
+                    </span>
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/sql.png">
+                        SQL
+                    </span>
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/js.png">
+                        JavaScript
+                    </span>
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/htmlcss.png">
+                        HTML/CSS
+                    </span>
+                </div>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="nav-btn prev" onclick="scrollCarousel(this, -1)">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="slide">
+                        <img src="public/img/2_1.png" alt="Site Mediverif">
+                        <div class="caption">Le site public Mediverif.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="public/img/2_2.png" alt="Double authentification">
+                        <div class="caption">Mise en place d'une double authentification.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="public/img/2_3.png" alt="Refonte CSS">
+                        <div class="caption">Refonte CSS complète de l'espace client.</div>
+                    </div>
+                </div>
+                <button class="nav-btn next" onclick="scrollCarousel(this, 1)">&#10095;</button>
+            </div>
+
+            <div>
+                <p class="project-desc">
+                    Dans le cadre de mon <b>alternance chez Mediverif</b>, je participe au développement et à la modernisation de l’écosystème web de l’entreprise. 
+                    J’interviens sur le site public, l’espace client et le back-office PHP, en réalisant à la fois de <b>nouvelles fonctionnalités et des optimisations</b> du code existant. 
+                    Mon travail implique l’amélioration de l’UX/UI, la refonte de pages clés, la gestion des exports PDF/CSV/XML et le traitement de données via les classes métier internes.
+                    <br><br>
+                    J’ai également conçu des <b>fonctionnalités</b> comme la double authentification (MFA), la sécurisation des réinitialisations de mot de passe, ainsi qu’une API REST interne. 
+                    Ces missions me permettent de travailler au quotidien avec PHP, SQL, JavaScript, HTML/CSS et d’aborder des problématiques réelles de <b>sécurité, performance et architecture applicative</b>.
+                </p>
+                <a target="_blank" href="https://www.mediverif.fr/" class="project-link">Voir le site de Mediverif</a>
+            </div>
+        </section>
+
+
+        <section class="project-section">
+            <div class="project-header">
+                <div class="project-meta">
+                    <span>Septembre 2025</span>
+                    <span>•</span>
+                    <span>Application python</span>
+                </div>
+                <h2 class="project-title">Color Harmony Generator</h2>
+                <div class="tags-container">
+                    <span class="tag">
+                        <img class="icon-tags-container" src="public/img/python.png">
+                        Python
+                    </span>
+                </div>
+            </div>
+
+            <div class="carousel-wrapper">
+                <button class="nav-btn prev" onclick="scrollCarousel(this, -1)">&#10094;</button>
+                <div class="carousel-track">
+                    <div class="slide">
+                        <img src="public/img/3_1.png" alt="Generate from color">
+                        <div class="caption">Générer des palettes grâce à une couleur.</div>
+                    </div>
+                    <div class="slide">
+                        <img src="public/img/3_2.png" alt="Generate from image">
+                        <div class="caption">Générer des palettes grâce à une image.</div>
+                    </div>
+                </div>
+                <button class="nav-btn next" onclick="scrollCarousel(this, 1)">&#10095;</button>
+            </div>
+
+            <div>
+                <p class="project-desc">
+                    <b>Color Harmony Generator</b> est une application python conçue pour aider les designers et développeurs à créer instantanément des <b>palettes de couleurs</b> esthétiques et cohérentes. Elle simplifie le choix chromatique grâce à la précision d'algorithmes mathématiques et la puissance de l'intelligence artificielle pour garantir un résultat harmonieux.
+                    <br><br>
+                    L'outil propose trois fonctionnalités majeures : la génération d'<b>harmonies classiques</b> (complémentaires, pastel, etc.) depuis un code couleur, l'extraction intelligente des teintes dominantes d'<b>une image</b> via le Machine Learning, et un mode de <b>création aléatoire</b>. Il permet une visualisation des résultats en temps réel et l'exportation automatique des palettes générées sous forme de planches haute définition.
+                </p>
+                <a target="_blank" href="https://github.com/vuillin/color-harmony" class="project-link">Voir sur GitHub</a>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>

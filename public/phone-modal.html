@@ -1,0 +1,239 @@
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+        /* --- DESIGN SYSTEM REPRIS --- */
+        :root {
+            --bg-body: #000000;
+            --bg-card: #1c1c1e;
+            --text-primary: #f5f5f7;
+            --text-secondary: #86868b;
+            --accent-blue: #2997ff;
+            --accent-gray: #3a3a3c;
+            --radius: 20px;
+            --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+            font-family: var(--font-stack);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 100px;
+        }
+
+        .container {
+            max-width: 90%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .main-title-contact {
+            font-size: 50px;
+            text-align: center;
+            margin-top: 40px;
+            font-family: "Sansation", sans-serif;
+            font-weight: 400;
+        }
+
+        .main-hr-contact {
+            max-width: 80%;
+            margin: 0 auto;
+            margin-top: 40px;
+            margin-bottom: 55px;
+            opacity: 0.15;
+            border: 1px solid #fff;
+        }
+
+        /* --- FORMULAIRE SPECIFIQUE --- */
+        .contact-wrapper {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px;
+            background: var(--bg-card); 
+            border-radius: var(--radius);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        .contact-intro {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(180deg, #fff, #b0b0b0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+
+        .contact-desc {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Groupes de champs */
+        .form-group {
+            margin-bottom: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        label {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-secondary); /* Style ".project-meta" */
+            margin-left: 5px;
+        }
+
+        /* Style des inputs */
+        .form-input, .form-textarea {
+            width: 100%;
+            background-color: #000; /* Fond noir pour contraste avec la carte grise */
+            border: 1px solid var(--accent-gray);
+            border-radius: 12px;
+            padding: 16px;
+            font-size: 17px;
+            color: var(--text-primary);
+            font-family: var(--font-stack);
+            transition: all 0.3s ease;
+        }
+
+        /* Focus effet Apple Blue */
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.15);
+        }
+
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* Bouton d'envoi */
+        .btn-submit {
+            display: inline-block;
+            width: 100%;
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            filter: brightness(1.1);
+            transform: scale(1.01);
+        }
+
+        .btn-submit:active {
+            transform: scale(0.98);
+        }
+
+        .github-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 35px;
+            gap: 12px;
+            width: fit-content;
+            text-align: center;
+            font-weight: 700;
+            background-color: #1c1c1e;
+            color: rgb(241, 241, 241);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-size: 25px;
+            border-radius: 10px;
+            font-family: var(--font-stack);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            transition: transform 0.15s ease;
+        }
+
+        .github-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .github-button img {
+            height: 40px;
+            width: auto;
+        }
+
+    </style>
+
+<body>
+
+    <div class="container">
+
+        <h1 class="main-title-contact">ME CONTACTER</h1>
+        <hr class="main-hr-contact">
+
+        <div class="contact-wrapper">
+            
+            <div class="contact-intro">
+                <h2 class="contact-title">Prise de contact</h2>
+                <p class="contact-desc">
+                    Pour toute question ou demande d'information, n'hésitez pas à m'envoyer un message.
+                </p>
+            </div>
+
+            <form action="#" method="POST">
+                
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" name="email" class="form-input" placeholder="exemple@mail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Sujet</label>
+                    <input type="text" id="subject" name="subject" class="form-input" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Votre message</label>
+                    <textarea id="message" name="message" class="form-textarea" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label" style="text-transform:none; letter-spacing:0; font-size:15px; color: var(--text-secondary); display:flex; gap:10px; align-items:flex-start;">
+                        <input type="checkbox" id="consent" name="consent" required style="margin-top:4px; transform:scale(1.1);">
+                        <span>J'accepte que les informations fournies soient utilisées uniquement pour me recontacter dans le cadre de ce message.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">Envoyer le message</button>
+
+            </form>
+
+        </div>
+
+        <a class="github-button" target="_blank" href="https://github.com/vuillin">
+            <img alt="github-logo" src="public/img/github.png">
+            MON GITHUB
+         </a>
+
+    </div>
+
+</body>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thomas VUILLIN - Portfolio</title>
+    <link rel="icon" type="image/png" href="public/img/code.png" />
+    <link rel="stylesheet" href="styles/main.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./vendor/three.module.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="brand-overlay" aria-hidden="true">
+      <span class="brand-title">THOMAS VUILLIN</span>
+      <span class="brand-subtitle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="28px" viewBox="0 -960 960 960" width="28px" fill="#00FF66"><path d="M320-240 80-480l240-240 57 57-184 184 183 183-56 56Zm320 0-57-57 184-184-183-183 56-56 240 240-240 240Z"/></svg>
+        <span class="brand-text">PORTFOLIO INFORMATIQUE</span>
+      </span>
+    </div>
+    <header class="site-header">
+
+    </header>
+
+    <main class="site-main">
+      <div class="container">
+        <section class="viewer-section">
+          <div id="viewer-status" class="viewer-status" aria-live="polite">
+            Chargement du modèle 3D…
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+      </div>
+    </footer>
+
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
