@@ -164,39 +164,87 @@
 
         .btn-submit:active {
             transform:translateY(2px);
-            box-shadow: 0 1px 0 0px #476e3a;
         }
 
-        .github-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            margin-top: 35px;
-            gap: 12px;
-            width: fit-content;
-            text-align: center;
-            font-weight: 700;
-            background-color: #1c1c1e;
-            color: rgb(241, 241, 241);
-            padding: 15px 35px;
-            text-decoration: none;
-            font-size: 25px;
-            border-radius: 10px;
-            font-family: var(--font-stack);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            transition: transform 0.15s ease;
+        /* --- Animations bloc gauche → droite --- */
+        @keyframes slideFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-35px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .github-button:hover {
-            transform: translateY(-3px);
+        /* --- Animation bloc droite → gauche --- */
+        @keyframes slideFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(35px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        .github-button img {
-            height: 40px;
-            width: auto;
+        /* --- Application des animations --- */
+        .contact-intro,
+        .contact-intro-2 {
+            opacity: 0;
+            animation: slideFromLeft 0.5s ease-out forwards;
         }
+
+        /* petit décalage pour un effet en cascade */
+        .contact-intro-2 {
+            animation-delay: 0.15s;
+        }
+
+        .form-container {
+            opacity: 0;
+            animation: slideFromRight 0.5s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        /* --- Animation titre --- */
+        @keyframes slideDownFade {
+            0% {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-title-contact {
+            opacity: 0;
+            animation: slideDownFade 0.6s ease-out forwards;
+        }
+
+
+        /* --- animation HR étire --- */
+        @keyframes hrGrow {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            100% {
+                width: 35%;
+                opacity: 1;
+            }
+        }
+
+        .main-hr-contact {
+            opacity: 0;
+            width: 0;
+            animation: hrGrow 0.6s ease-out forwards;
+            animation-delay: 0.2s; 
+        }
+
 
     </style>
 
