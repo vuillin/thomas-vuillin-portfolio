@@ -478,7 +478,7 @@ const GLOBAL_MODAL_STYLES = `
 }
 
 .global-html-modal__frame {
-  background: linear-gradient(145deg, #0f1118, #171b25);
+  background: #1c1c1e;
   padding: 20px 22px;
   border-radius: 18px;
   box-shadow: 0 18px 80px rgba(0, 0, 0, 0.7);
