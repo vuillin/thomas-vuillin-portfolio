@@ -4,8 +4,8 @@
 
         /* --- DESIGN SYSTEM REPRIS --- */
         :root {
-            --bg-body: #000000;
-            --bg-card: #1c1c1e;
+            --bg-body: #1c1c1e;
+            --bg-card: #1b1b1d;
             --text-primary: #f5f5f7;
             --text-secondary: #86868b;
             --accent-blue: #2997ff;
@@ -27,80 +27,99 @@
 
         .container {
             max-width: 90%;
-            margin: 0 auto;
             padding: 0 20px;
         }
 
         .main-title-contact {
-            font-size: 50px;
-            text-align: center;
-            margin-top: 40px;
+            font-size: 65px;
+            text-align: left;
+            margin-top: 15px;
             font-family: "Sansation", sans-serif;
             font-weight: 400;
         }
 
         .main-hr-contact {
-            max-width: 80%;
-            margin: 0 auto;
-            margin-top: 40px;
+            max-width: 35%;
+            margin-top: 20px;
             margin-bottom: 55px;
-            opacity: 0.15;
-            border: 1px solid #fff;
+            border: 1px solid #39393b;
         }
 
-        /* --- FORMULAIRE SPECIFIQUE --- */
         .contact-wrapper {
-            max-width: 700px;
+            display: flex;
+            flex-direction: column;
             margin: 0 auto;
-            padding: 40px;
-            background: var(--bg-card); 
-            border-radius: var(--radius);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid #333;
         }
 
         .contact-intro {
+            text-align: left;
+            width: 80%;
+            padding: 10px 25px 5px 20px;
+            border-radius: 10px;
+            background-color: #0d0d0e;
+            box-shadow: 10px 10px 0 0px #000000;
             margin-bottom: 40px;
-            text-align: center;
+        }
+
+        .contact-intro-2 {
+
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            text-align: left;
+            width: fit-content;
+            padding: 15px 25px 15px 20px;
+            border-radius: 10px;
+            background-color: #0d0d0e;
+            box-shadow: 10px 10px 0 0px #000000;
+            margin-bottom: 40px;
         }
 
         .contact-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(180deg, #fff, #b0b0b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 15px;
+            color: #679b54;
+            font-size: 24px !important;
+            font-weight: 400;
+            margin-bottom: 8px;
         }
 
         .contact-desc {
+            font-family: 'Segoe UI',  sans-serif;
             color: var(--text-secondary);
             font-size: 1.1rem;
         }
 
-        /* Groupes de champs */
+        .form-container {
+            text-align: left;
+            margin-left: auto;
+            width: 85%;
+            padding: 10px 50px 5px 50px;
+            border-radius: 10px;
+            background-color: #0d0d0e;
+            box-shadow: -10px 10px 0 0px #000000;
+            margin-bottom: 40px;
+        }
+
         .form-group {
             margin-bottom: 25px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 5px;
         }
 
         label {
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 17px;
             font-weight: 600;
             letter-spacing: 1px;
-            color: var(--text-secondary); /* Style ".project-meta" */
+            color: #679b54; 
             margin-left: 5px;
         }
 
-        /* Style des inputs */
         .form-input, .form-textarea {
             width: 100%;
-            background-color: #000; /* Fond noir pour contraste avec la carte grise */
-            border: 1px solid var(--accent-gray);
+            background-color: #18181a; 
             border-radius: 12px;
+            border: none;
             padding: 16px;
             font-size: 17px;
             color: var(--text-primary);
@@ -108,11 +127,9 @@
             transition: all 0.3s ease;
         }
 
-        /* Focus effet Apple Blue */
         .form-input:focus, .form-textarea:focus {
             outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 4px rgba(41, 151, 255, 0.15);
+            border-color: #679b54;
         }
 
         .form-textarea {
@@ -120,29 +137,34 @@
             resize: vertical;
         }
 
-        /* Bouton d'envoi */
         .btn-submit {
-            display: inline-block;
-            width: 100%;
-            background-color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            gap: 8px;
+            width: fit-content;
+            background-color: #679b54;
+            box-shadow: 0 5px 0 0px #476e3a;
             color: white;
-            padding: 18px;
+            padding: 9px 18px;
             border: none;
-            border-radius: 50px;
+            border-radius: 10px;
             font-size: 18px;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
+            font-family: 'Segoe UI', sans-serif;
             transition: transform 0.2s ease, filter 0.2s ease;
-            margin-top: 10px;
+            margin-bottom: 40px;
         }
 
         .btn-submit:hover {
-            filter: brightness(1.1);
-            transform: scale(1.01);
+            filter: brightness(0.95);
         }
 
         .btn-submit:active {
-            transform: scale(0.98);
+            transform:translateY(2px);
+            box-shadow: 0 1px 0 0px #476e3a;
         }
 
         .github-button {
@@ -188,51 +210,66 @@
         <div class="contact-wrapper">
             
             <div class="contact-intro">
-                <h2 class="contact-title">Prise de contact</h2>
+                <h2 class="contact-title">PRISE DE CONTACT</h2>
                 <p class="contact-desc">
                     Pour toute question ou demande d'information, n'hésitez pas à m'envoyer un message.
                 </p>
             </div>
 
             <form action="#" method="POST">
+
+                <div class="form-container">
+
+                    <div style="display: flex; gap:40px; margin-top: 40px;">
+
+                        <div class="form-group" style="width: 40%;">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom" required>
+                        </div>
+
+                        <div class="form-group" style="width: 60%;">
+                            <label for="email">Adresse email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="exemple@mail.com" required>
+                        </div>
+
+                    </div>
                 
-                <div class="form-group">
-                    <label for="name">Nom complet</label>
-                    <input type="text" id="name" name="name" class="form-input" placeholder="Votre nom" required>
+                    
+
+                    <div class="form-group" style="max-width: 80%;">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Votre message</label>
+                        <textarea id="message" name="message" class="form-textarea" required></textarea>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Adresse email</label>
-                    <input type="email" id="email" name="email" class="form-input" placeholder="exemple@mail.com" required>
+
+                <div class="contact-intro-2">
+
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="checkbox-label" style="text-transform:none; letter-spacing:0; font-size:17px; color: var(--text-secondary); display:flex; gap:10px; align-items:flex-start;">
+                            <input type="checkbox" id="consent" name="consent" required style="margin-top:15px; margin-right: 10px; transform:scale(1.1);">
+                            <span style="text-align: justify;">J'accepte que les informations fournies soient utilisées uniquement pour me recontacter dans le cadre de ce message. Aucun autre traitement ne sera effectué avec mes informations.</span>
+                        </label>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label for="subject">Sujet</label>
-                    <input type="text" id="subject" name="subject" class="form-input" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Votre message</label>
-                    <textarea id="message" name="message" class="form-textarea" required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="checkbox-label" style="text-transform:none; letter-spacing:0; font-size:15px; color: var(--text-secondary); display:flex; gap:10px; align-items:flex-start;">
-                        <input type="checkbox" id="consent" name="consent" required style="margin-top:4px; transform:scale(1.1);">
-                        <span>J'accepte que les informations fournies soient utilisées uniquement pour me recontacter dans le cadre de ce message.</span>
-                    </label>
-                </div>
-
-                <button type="submit" class="btn-submit">Envoyer le message</button>
+                <button type="submit" class="btn-submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="35px" viewBox="0 -960 960 960" width="35px" fill="#e3e3e3"><path d="M720-174.23 678.23-216l72.62-74H570v-60h180.85l-72.62-74L720-465.77 865.77-320 720-174.23ZM162.31-290q-29.83 0-51.07-21.24Q90-332.48 90-362.31v-395.38q0-29.83 21.24-51.07Q132.48-830 162.31-830h515.38q29.83 0 51.07 21.24Q750-787.52 750-757.69v210.15q-7.5-1.23-15-1.84-7.5-.62-15-.62t-15 .31q-7.5.31-15 1.54v-178.93L416-532.31 150-726.46v364.15q0 5.39 3.46 8.85t8.85 3.46h329.54q-1.23 7.5-1.54 15-.31 7.5-.31 15t.62 15q.61 7.5 1.84 15H162.31Zm29.53-480L416-605.69 646.93-770H191.84ZM150-350V-770v420Z"/></svg>
+                    VALIDER ET ENVOYER
+                </button>
 
             </form>
 
         </div>
 
-        <a class="github-button" target="_blank" href="https://github.com/vuillin">
-            <img alt="github-logo" src="public/img/github.png">
-            MON GITHUB
-         </a>
+        
 
     </div>
 
