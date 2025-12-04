@@ -1,21 +1,15 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>À Propos - Portfolio</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 
-        /* --- DESIGN SYSTEM REPRIS & ÉTENDU --- */
+        /* --- DESIGN SYSTEM REPRIS --- */
         :root {
-            --bg-body: #000000;
-            --bg-card: #1c1c1e;
+            --bg-body: #1c1c1e;
+            --bg-card: #1b1b1d;
             --text-primary: #f5f5f7;
             --text-secondary: #86868b;
             --accent-blue: #2997ff;
             --accent-gray: #3a3a3c;
-            --accent-hover: #0077ED;
             --radius: 20px;
             --font-stack: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
@@ -26,227 +20,274 @@
             background-color: var(--bg-body);
             color: var(--text-primary);
             font-family: var(--font-stack);
-            line-height: 1.6;
+            line-height: 1.5;
             -webkit-font-smoothing: antialiased;
             padding-bottom: 100px;
-            overflow-x: hidden; /* Évite le scroll horizontal sur mobile */
         }
 
         .container {
             max-width: 90%;
-            margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* --- TYPOGRAPHIE COMMUNE --- */
-        .main-title-page {
-            font-size: 50px;
-            text-align: center;
-            margin-top: 40px;
+        .main-title-contact {
+            font-size: 65px;
+            text-align: left;
+            margin-top: 15px;
             font-family: "Sansation", sans-serif;
             font-weight: 400;
-            letter-spacing: 1px;
-            opacity: 0; /* Pour l'animation */
-            animation: fadeInDown 0.8s ease forwards;
         }
 
-        .main-hr-page {
-            max-width: 80%;
-            margin: 0 auto;
-            margin-top: 40px;
+        .main-hr-contact {
+            max-width: 35%;
+            margin-top: 20px;
             margin-bottom: 55px;
-            opacity: 0.15;
-            border: 1px solid #fff;
-            animation: expandWidth 1s ease forwards;
+            border: 1px solid #39393b;
         }
 
-        /* --- LAYOUT "À PROPOS" --- */
-        .about-wrapper {
-            max-width: 900px; /* Un peu plus large que le contact pour la grille */
+        .contact-wrapper {
+            display: flex;
+            flex-direction: column;
             margin: 0 auto;
-            padding: 50px;
-            background: var(--bg-card); 
-            border-radius: var(--radius);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            
-            /* Grille pour image + texte */
-            display: grid;
-            grid-template-columns: 1fr 1.5fr; /* Colonne image plus petite que texte */
-            gap: 50px;
-            align-items: center;
-
-            opacity: 0;
-            animation: fadeInUp 0.8s ease 0.3s forwards;
         }
 
-        /* Colonne Image */
-        .profile-container {
+        .contact-intro {
             position: relative;
-            width: 100%;
-            aspect-ratio: 1/1;
-            border-radius: var(--radius);
-            overflow: hidden;
-            border: 1px solid var(--accent-gray);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            transition: transform 0.4s ease;
+            text-align: left;
+            width: 80%;
+            padding: 10px 25px 5px 20px;
+            border-radius: 10px;
+            background-color: #0d0d0e;
+            box-shadow: 10px 10px 0 0px #000000;
+            margin-bottom: 40px;
         }
 
-        .profile-container:hover {
-            transform: scale(1.02);
-            border-color: var(--accent-blue);
+        .contact-icons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 8px; 
         }
 
-        .profile-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%); /* Effet artistique noir et blanc */
-            transition: filter 0.4s ease;
+        .contact-icons .icon {
+            opacity: 0.8;
         }
 
-        .profile-container:hover .profile-img {
-            filter: grayscale(0%); /* Retour couleur au survol */
+        .icon-up {
+            transform: translateY(-5px); 
         }
 
-        /* Colonne Texte */
-        .bio-content h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            background: linear-gradient(180deg, #fff, #b0b0b0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
+        .contact-intro-2 {
+
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            text-align: left;
+            width: fit-content;
+            padding: 15px 25px 15px 20px;
+            border-radius: 10px;
+            background-color: #0d0d0e;
+            box-shadow: 10px 10px 0 0px #000000;
+            margin-bottom: 40px;
         }
 
-        .bio-text {
+        .contact-title {
+            color: #679b54;
+            font-size: 24px !important;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .contact-desc {
+            font-family: 'Segoe UI',  sans-serif;
             color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-bottom: 25px;
+            font-size: 1.1rem;
             text-align: justify;
         }
 
-        /* Tags / Compétences (Style Apple Tag) */
-        .skills-grid {
+        .form-container {
+            text-align: left;
+            margin-left: auto;
+            width: 85%;
+            padding: 10px 50px 5px 50px;
+            border-radius: 10px;
+            background-color: #0d0d0e;
+            box-shadow: -10px 10px 0 0px #000000;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
             display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 35px;
+            flex-direction: column;
+            gap: 5px;
         }
 
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--accent-gray);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: default;
+        label {
+            text-transform: uppercase;
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #679b54; 
+            margin-left: 5px;
         }
 
-        .skill-tag:hover {
-            background: rgba(41, 151, 255, 0.15);
-            border-color: var(--accent-blue);
-            color: var(--accent-blue);
-            transform: translateY(-2px);
-        }
-
-        /* Boutons d'action */
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: var(--accent-blue);
-            color: white;
-            padding: 15px 30px;
+        .form-input, .form-textarea {
+            width: 100%;
+            background-color: #18181a; 
+            border-radius: 12px;
             border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            flex: 1;
-            text-align: center;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(41, 151, 255, 0.3);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            background-color: transparent;
+            padding: 16px;
+            font-size: 17px;
             color: var(--text-primary);
-            padding: 15px 30px;
-            border: 1px solid var(--accent-gray);
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s ease;
-            flex: 1;
-            text-align: center;
+            font-family: var(--font-stack);
+            transition: all 0.3s ease;
         }
 
-        .btn-secondary:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-color: #fff;
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #679b54;
         }
 
-        .github-button {
+        .form-textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .btn-submit {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto;
-            margin-top: 35px;
-            gap: 12px;
+            gap: 8px;
             width: fit-content;
-            text-align: center;
-            font-weight: 700;
-            background-color: #1c1c1e;
-            color: rgb(241, 241, 241);
-            padding: 15px 35px;
-            text-decoration: none;
-            font-size: 25px;
+            background-color: #679b54;
+            box-shadow: 0 5px 0 0px #476e3a;
+            color: white;
+            padding: 9px 18px;
+            border: none;
             border-radius: 10px;
-            font-family: var(--font-stack);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            border: 1px solid #333;
-            transition: transform 0.15s ease;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Segoe UI', sans-serif;
+            transition: transform 0.2s ease, filter 0.2s ease;
+            margin-bottom: 40px;
         }
 
-        .github-button:hover {
-            transform: translateY(-3px);
+        .btn-submit:hover {
+            filter: brightness(0.95);
         }
 
-        .github-button img {
-            height: 40px;
-            width: auto;
+        .btn-submit:active {
+            transform:translateY(2px);
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- Animations bloc gauche → droite --- */
+        @keyframes slideFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-35px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* --- Animation bloc droite → gauche --- */
+        @keyframes slideFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(35px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
-        @keyframes expandWidth {
-            from { width: 0%; opacity: 0; }
-            to { width: 80%; opacity: 0.15; }
+        /* --- Application des animations --- */
+        .contact-intro,
+        .contact-intro-2 {
+            opacity: 0;
+            animation: slideFromLeft 0.5s ease-out forwards;
+        }
+
+        /* petit décalage pour un effet en cascade */
+        .contact-intro-2 {
+            animation-delay: 0.15s;
+        }
+
+        .form-container {
+            opacity: 0;
+            animation: slideFromRight 0.5s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        /* --- Animation titre --- */
+        @keyframes slideDownFade {
+            0% {
+                opacity: 0;
+                transform: translateY(-25px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-title-contact {
+            opacity: 0;
+            animation: slideDownFade 0.6s ease-out forwards;
+        }
+
+
+        /* --- animation HR étire --- */
+        @keyframes hrGrow {
+            0% {
+                width: 0;
+                opacity: 0;
+            }
+            100% {
+                width: 35%;
+                opacity: 1;
+            }
+        }
+
+        .main-hr-contact {
+            opacity: 0;
+            width: 0;
+            animation: hrGrow 0.6s ease-out forwards;
+            animation-delay: 0.2s; 
+        }
+
+        .terminal {
+            position: relative;
+            background-color: #000000;
+            padding: 5px 15px 10px 15px;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 1000px) {
+        
+            .main-title-contact {
+                font-size: 45px;
+            }
+
+            .contact-intro {
+                width: auto;
+            }
+
+            .form-container {
+                width: auto;
+            }
+
+            .main-hr-contact {
+                margin-bottom: 45px;
+            }
+
         }
 
         /* --- RESPONSIVE --- */
@@ -285,111 +326,191 @@
 
             .veille-container {
                 flex-direction: column;
+                gap: 0px !important;
+            }
+
+            .github-button {
+                margin-top: 20px !important;
             }
         }
+
+        .veille-container {
+            gap: 20px;
+        }
+
+
+        .github-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            margin-top: 35px;
+            gap: 12px;
+            width: fit-content;
+            text-align: center;
+            font-weight: 700;
+            background-color: #1c1c1e;
+            color: rgb(241, 241, 241);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-size: 22px;
+            border-radius: 10px;
+            font-family: var(--font-stack);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transition: transform 0.15s ease;
+        }
+
+        .github-button:hover {
+            transform: translateY(-3px);
+        }
+
+        .github-button img {
+            height: 40px;
+            width: auto;
+        }
+
+
     </style>
-</head>
+
 <body>
 
     <div class="container">
 
-        <!-- Titre avec la police Sansation -->
-        <h1 class="main-title-page">À PROPOS</h1>
-        <hr class="main-hr-page">
+        <h1 class="main-title-contact">À PROPOS</h1>
+        <hr class="main-hr-contact">
 
-        <!-- Carte principale -->
-        <div class="about-wrapper">
-            
-            <!-- Partie Gauche : Image -->
-            <div class="profile-container">
-                <!-- Placeholder Image (remplace par ta photo) -->
-                <img src="public/img/code.jpeg" alt="Portrait" class="profile-img">
-            </div>
+        <!-- QUI SUIS-JE ? -->
+        <div class="contact-wrapper">
 
-            <!-- Partie Droite : Texte -->
-            <div class="bio-content">
-                <h2>Qui suis-je ?</h2>
-                
-                <p class="bio-text">
-                    Ce qui m’attire dans l’informatique, c’est de comprendre comment les choses fonctionnent et d’avoir la possibilité de créer par moi-même. C’est dans cette logique que je me retrouve particulièrement dans le développement et la cybersécurité, deux domaines qui combinent logique, technique et réflexion.
-                </p>
-                
-                <p class="bio-text">
-                    Curieux de nature, j’aime comprendre comment les choses fonctionnent, apprendre de nouvelles technologies et expérimenter. Je tends vers un profil full-stack, motivé par l’envie d’explorer, de progresser et de donner vie à des projets variés.
-                </p>
+            <div class="contact-intro">
 
-                <!-- Tags Design / Tech -->
-                <div class="skills-grid">
-                    <span class="skill-tag">Curieux</span>
-                    <span class="skill-tag">Autonome</span>
-                    <span class="skill-tag">Créatif</span>
+                <div class="contact-icons">
+                    <svg class="icon icon-up" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M240-120v-80h480v80H240Z"/></svg>
+                    <svg style="transform: translateY(1px); " class="icon" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm0 0v-560 560Z"/></svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                 </div>
 
-                <!-- Boutons d'action -->
-                <div class="action-buttons">
-                    <a href="public/pdf/VUILLIN_Thomas_CV.pdf" class="btn-primary" download="VUILLIN_Thomas_CV.pdf">Télécharger mon CV</a>
-                </div>
+                <h2 class="contact-title">QUI SUIS-JE ?</h2>
+                <p class="contact-desc">
+                    Je m’appelle Thomas Vuillin. Actuellement en formation informatique en alternance, je suis un étudiant souhaitant se spécialiser dans le domaine de la cybersécurité.
+                    <br><br>
+                    Ce qui m’intéresse le plus, c’est de résoudre des problèmes concrets. J’aime prendre un processus compliqué, le décortiquer, et en faire quelque chose de clair et intuitif.
+                    <br><br>
+                    J’ai travaillé sur des projets variés et à chaque fois l’objectif reste le même : faire en sorte que l’utilisateur n’ait pas à se poser de questions.
+                </p>
             </div>
 
         </div>
 
-        <br> <br>
+        <!-- MES PRINCIPALES COMPÉTENCES -->
+        <div class="form-container">
 
-        <div class="about-wrapper" style="display: flex;">
+            <div class="contact-icons">
+                <svg class="icon icon-up" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M240-120v-80h480v80H240Z"/></svg>
+                <svg style="transform: translateY(1px); " class="icon" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm0 0v-560 560Z"/></svg>
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </div>
 
-            <div class="bio-content">
-    <h2>Ma formation</h2>
-    
-    <p class="bio-text">
-        En formation en BUT Informatique (IUT Marie &amp; Louis Pasteur - Belfort) pour un cursus de 3 ans, je réalise mon alternance dans l'entreprise Mediverif (<a style="font-size: 16px;" target="_blank" href="https://mediverif.fr" class="project-link">
-        Le site de Mediverif
-    </a>).
-    </p>
+            <h2 class="contact-title">MES PRINCIPALES COMPÉTENCES</h2>
 
-    <div class="bio-map">
-        <iframe
-            src="https://www.google.com/maps?q=IUT%20Nord%20Franche-Comt%C3%A9%20Belfort&output=embed"
-            width="100%"
-            height="250"
-            style="border:0; margin-top: 10px;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-</div>
+            <div class="terminal" style="margin-bottom: 20px;">
 
+                <div class="contact-icons">
+                    <svg class="icon icon-up" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="gray"><path d="M240-120v-80h480v80H240Z"/></svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="gray"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </div>
+
+                <p style="color: gray;">thomas@portfolio ~</p>
+
+                <p style="color: #679b54; margin: 0;">thomas@portfolio ~ $  
+                    <span style="color: white; margin-left: 5px;">
+                        <img style="height:15px; width: auto; margin-right: 4px;" src="public/img/python.png">
+                        Python
+                    </span>
+                </p>
+
+                <p style="color: #679b54; margin: 0;">thomas@portfolio ~ $  
+                    <span style="color: white; margin-left: 5px;">
+                        <img style="height:15px; width: auto; margin-right: 4px;" src="public/img/linux.png">
+                        Linux
+                    </span>
+                </p>
+
+                <p style="color: #679b54; margin: 0;">thomas@portfolio ~ $  
+                    <span style="color: white; margin-left: 5px;">
+                        <img style="height:15px; width: auto; margin-right: 4px;" src="public/img/js.png">
+                        JavaScript
+                    </span>
+                </p>
+
+                <p style="color: #679b54; margin-top: 15px;">thomas@portfolio ~ $  <a style="color: #cb2e2e; margin-left: 5px;" href="public/pdf/VUILLIN_Thomas_CV.pdf" download="VUILLIN_Thomas_CV.pdf">Télécharger mon CV pour en apprendre davantage</a></p>
+            </div>
 
         </div>
 
-        <br> <br>
 
-        <div class="about-wrapper" style="display: flex;">
+        <!-- MA FORMATION -->
+        <div class="contact-intro">
 
-            <div class="bio-content">
-                <h2>Ma veille informatique</h2>
-                
-                <p class="bio-text">
-                    Je maintiens une veille informatique active. Mes principales sources sont les suivantes :
+            <div class="contact-icons">
+                <svg class="icon icon-up" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M240-120v-80h480v80H240Z"/></svg>
+                <svg style="transform: translateY(1px); " class="icon" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm0 0v-560 560Z"/></svg>
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </div>
+
+            <h2 class="contact-title">MA FORMATION</h2>
+
+            <div style="display: flex; gap: 20px;">
+
+                <p class="contact-desc">
+                    En formation en BUT Informatique <i>(IUT Marie & Louis Pasteur - Belfort)</i> pour un cursus de 3 ans, je réalise mon alternance dans l'entreprise Mediverif.
+                    <br><br>
+                    L’alternance se compose de missions variées allant de la refonte front-end au développement de nouvelles fonctionnalités.
                 </p>
 
-                <div class="veille-container" style="display: flex; gap: 20px;">
+                <div class="bio-map">
+                    <iframe
+                        src="https://www.google.com/maps?q=IUT%20Nord%20Franche-Comt%C3%A9%20Belfort&output=embed"
+                        style="border:0; margin-top: 10px; border-radius: 10px; height: 90%;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MA VEILLE INFORMATIQUE -->
+        <div class="form-container" style="padding-bottom: 40px;">
+
+            <div class="contact-icons">
+                <svg class="icon icon-up" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M240-120v-80h480v80H240Z"/></svg>
+                <svg style="transform: translateY(1px); " class="icon" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm0 0v-560 560Z"/></svg>
+                <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+            </div>
+
+            <h2 class="contact-title">MA VEILLE INFORMATIQUE</h2>
+
+            <div class="veille-container" style="display: flex;">
                     
-                    <a class="github-button" target="_blank" href="https://arstechnica.com/">
-                        <img alt="github-logo" src="public/img/ars.png">
-                        ARS TECHNICA
-                    </a>
+                <a class="github-button" target="_blank" href="https://arstechnica.com/">
+                    <img alt="github-logo" src="public/img/ars.png">
+                    ARS TECHNICA
+                </a>
 
-                    <a class="github-button" target="_blank" href="https://thehackernews.com/">
-                        <img alt="github-logo" src="public/img/thn.png">
-                        THE HACKER NEWS
-                    </a>
+                <a class="github-button" target="_blank" href="https://thehackernews.com/">
+                    <img alt="github-logo" src="public/img/thn.png">
+                    THE HACKER NEWS
+                </a>
 
-                </div>
+            </div>
 
-                <div class="veille-container" style="display: flex; gap: 20px;">
+            <div class="veille-container" style="display: flex;">
 
-                    <a class="github-button" target="_blank" href="https://stackoverflow.blog/">
+                <a class="github-button" target="_blank" href="https://stackoverflow.blog/">
                     <img alt="github-logo" src="public/img/stack.png">
                     STACK OVERFLOW
                 </a>
@@ -399,22 +520,10 @@
                     SMASHING MAGAZINE
                 </a>
 
-                </div>
-                
-                
-
             </div>
 
         </div>
 
-        <hr class="main-hr-page" style="margin-top: 60px; margin-bottom: 50px;">
-
-        <a class="github-button" target="_blank" href="https://github.com/vuillin">
-            <img alt="github-logo" src="public/img/github.png">
-            MON GITHUB
-         </a>
-
     </div>
 
 </body>
-</html>
