@@ -52,6 +52,7 @@
         }
 
         .contact-intro {
+            position: relative;
             text-align: left;
             width: 80%;
             padding: 10px 25px 5px 20px;
@@ -59,6 +60,22 @@
             background-color: #0d0d0e;
             box-shadow: 10px 10px 0 0px #000000;
             margin-bottom: 40px;
+        }
+
+        .contact-icons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            gap: 8px; 
+        }
+
+        .contact-icons .icon {
+            opacity: 0.8;
+        }
+
+        .icon-up {
+            transform: translateY(-5px); 
         }
 
         .contact-intro-2 {
@@ -278,6 +295,13 @@
         <div class="contact-wrapper">
             
             <div class="contact-intro">
+
+                <div class="contact-icons">
+                    <svg class="icon icon-up" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M240-120v-80h480v80H240Z"/></svg>
+                    <svg style="transform: translateY(1px); " class="icon" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm0 0v-560 560Z"/></svg>
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </div>
+
                 <h2 class="contact-title">PRISE DE CONTACT</h2>
                 <p class="contact-desc">
                     Pour toute question ou demande d'information, n'hésitez pas à m'envoyer un message.
@@ -287,6 +311,12 @@
             <form action="#" method="POST">
 
                 <div class="form-container">
+
+                    <div class="contact-icons">
+                        <svg class="icon icon-up" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="M240-120v-80h480v80H240Z"/></svg>
+                        <svg style="transform: translateY(1px); " class="icon" xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 -960 960 960" width="18px" fill="#e3e3e3"><path d="M120-120v-720h720v720H120Zm80-80h560v-560H200v560Zm0 0v-560 560Z"/></svg>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                    </div>
 
                     <div style="display: flex; gap:40px; margin-top: 40px;">
 
@@ -342,3 +372,24 @@
     </div>
 
 </body>
+
+
+
+<script>
+
+    function updateNameLabel() {
+        const label = document.querySelector('label[for="name"]');
+        if (!label) return;
+
+        if (window.innerWidth <= 1000) {
+            label.textContent = "Nom";
+        } else {
+            label.textContent = "Nom complet";
+        }
+    }
+
+    updateNameLabel();
+
+    window.addEventListener('resize', updateNameLabel);
+
+</script>
